@@ -3,8 +3,8 @@ import os
 from pathlib import Path
 import argparse
 
+import cv2
 import torch
-from cv2 import cv2
 from emonet.models import EmoNet
 from emonet.evaluation import evaluate
 
@@ -24,7 +24,7 @@ def capture_video():
 
     while vid.isOpened():
 
-        ret, frame = vid.read()
+        ret, frame = vid.read(cv2.IMREAD_COLOR)
 
         if ret:
             if frame_count % (interval * fps) == 0:
@@ -33,7 +33,7 @@ def capture_video():
                 img = frame[int(Y):int(Y + H), int(X):int(X + W)]
                 cv2.imwrite("facial_expressions/frame%d.jpg" % (frame_count / 10), img)
 
-            frame = cv2.resize(frame, None, fx=scaling_factor, fy=scaling_factor, interpolation=cv2.INTER_AREA)
+            # frame = cv2.resize(frame, None, fx=scaling_factor, fy=scaling_factor, interpolation=cv2.INTER_AREA)
             cv2.imshow('Cam', frame)
             frame_count += 1
 
@@ -44,7 +44,7 @@ def capture_video():
     cv2.destroyAllWindows()
 
 
-# torch.backends.cudnn.benchmark = True
+torch.backends.cudnn.benchmark = True
 
 # Parse arguments
 parser = argparse.ArgumentParser()
@@ -62,19 +62,7 @@ subset = 'test'
 
 print(f'Testing the model on {n_expression} emotional classes')
 
-# Loading the model
-
-frame_count = 0
-for file in os.listdir('web_faces'):
-    print(file)
-    photo = cv2.imread('web_faces/' + file)
-    face = face_cascade.detectMultiScale(photo, 1.1, 4)
-    X, Y, W, H = face[0]
-    img = photo[int(Y):int(Y + H), int(X):int(X + W)]
-    cv2.imwrite("web_face_detected/face%d.jpg" % (frame_count), img)
-    frame_count += 1
-
-capture_video()
+# capture_video()
 # dataset = CustomDataset()
 # data_loader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
 
@@ -86,6 +74,7 @@ state_dict = {k.replace('module.', ''): v for k, v in state_dict.items()}
 
 net = EmoNet(n_expression=n_expression).to('cpu')
 net.load_state_dict(state_dict, strict=False)
+net.eval()
 
 print(f'------------------------')
 evaluate(net)
