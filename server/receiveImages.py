@@ -17,7 +17,7 @@ print('-------------------------------------')
 # ftpResponse = session.delete('frame0.jpg')
 # print(ftpResponse)
 # session.dir()
-dir = './../frames/'
+dir = '../resources/frames/'
 
 for file in os.listdir(dir):
     r = io.BytesIO()
