@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="222fa669-b2c6-49d7-9879-f49ce66f5eba" name="Changes" comment="files xml">
-      <change afterPath="$PROJECT_DIR$/raspberry/socketRaspberry.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/socketServer.py" afterDir="false" />
+    <list default="true" id="222fa669-b2c6-49d7-9879-f49ce66f5eba" name="Changes" comment="message via socket">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/raspberry/mainClient.py" beforeDir="false" afterPath="$PROJECT_DIR$/raspberry/mainClient.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/raspberry/submitVideo.py" beforeDir="false" afterPath="$PROJECT_DIR$/raspberry/submitVideo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/emotionDetector.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/emotionDetector.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/receiveImages.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/mainServer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raspberry/socketRaspberry.py" beforeDir="false" afterPath="$PROJECT_DIR$/raspberry/socketRaspberry.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +69,7 @@
       <workItem from="1674850543280" duration="412000" />
       <workItem from="1674913176742" duration="507000" />
       <workItem from="1674921956000" duration="254000" />
-      <workItem from="1674922341364" duration="2541000" />
+      <workItem from="1674922341364" duration="5092000" />
     </task>
     <task id="LOCAL-00001" summary="files xml">
       <created>1674850016969</created>
@@ -89,7 +85,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674850286767</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="message via socket">
+      <created>1674925785514</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1674925785514</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -108,6 +111,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="files xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="files xml" />
+    <MESSAGE value="message via socket" />
+    <option name="LAST_COMMIT_MESSAGE" value="message via socket" />
   </component>
 </project>

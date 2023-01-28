@@ -4,7 +4,7 @@ ip = "192.168.1.59"
 ipRaspberry = "192.168.1.54"
 
 
-def sendExcludeEmotion(excluded_emotion):
+def sendExcludedEmotion(excluded_emotion):
     serv = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     serv.connect((ip, 8080))
     encodedMessage = bytes(excluded_emotion, 'utf-8')

@@ -5,6 +5,8 @@ import cv2 as cv2
 import picamera
 from picamera.array import PiRGBArray
 
+from socketRaspberry import sendExcludedEmotion
+
 
 def capture_video():
     session = ftplib.FTP('192.168.1.59')
@@ -26,9 +28,9 @@ def capture_video():
 
         try:
             nameFile = 'frame' + str(frame_count) + '.jpg'
-            image = face_detection(image)
-            cv2.imwrite('frames/' + nameFile, image)
-            image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+            img = face_detection(image)
+            cv2.imwrite('frames/' + nameFile, img)
+            img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         except:
             print('Face not detected')
             continue
@@ -37,14 +39,13 @@ def capture_video():
             file = open('frames/frame' + str(frame_count) + '.jpg', 'rb')
             ftpResponse = session.storbinary(f'STOR {nameFile}', file)
             print(ftpResponse)
+            frame_count += 1
         except:
             print('Send failed')
             continue
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
-
-        frame_count += 1
 
     session.quit()
     camera.stop_recording()
@@ -54,9 +55,9 @@ def capture_video():
 def face_detection(img):
     face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    faces = face_cascade.detectMultiScale(gray, 1.1, 4)
+    faces = face_cascade.detectMultiScale(gray, 1.3, 5)
     for (x, y, w, h) in faces:
-        face = img[y:y + h, x:x + w]
+        face = gray[y:y + h, x:x + w]
         return face
 
 
@@ -74,13 +75,15 @@ if __name__ == '__main__':
         else:
             break
 
+    sendExcludedEmotion(text)
+
     print("Starting the video...")
     isExist = os.path.exists("frames")
     if not isExist:
         os.makedirs("frames")
 
-    # listen(text)
     capture_video()
+
 
 
 
