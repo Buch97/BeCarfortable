@@ -1,11 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="222fa669-b2c6-49d7-9879-f49ce66f5eba" name="Changes" comment="files xml" />
+    <list default="true" id="222fa669-b2c6-49d7-9879-f49ce66f5eba" name="Changes" comment="files xml">
+      <change afterPath="$PROJECT_DIR$/raspberry/socketRaspberry.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/socketServer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raspberry/mainClient.py" beforeDir="false" afterPath="$PROJECT_DIR$/raspberry/mainClient.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raspberry/submitVideo.py" beforeDir="false" afterPath="$PROJECT_DIR$/raspberry/submitVideo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/emotionDetector.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/emotionDetector.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/receiveImages.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/mainServer.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
     <envs>
@@ -29,17 +44,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.fileTypes"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\matte\PycharmProjects\BeCarfortable" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -49,6 +69,11 @@
       <option name="presentableId" value="Default" />
       <updated>1674849751739</updated>
       <workItem from="1674849756491" duration="267000" />
+      <workItem from="1674850077261" duration="434000" />
+      <workItem from="1674850543280" duration="412000" />
+      <workItem from="1674913176742" duration="507000" />
+      <workItem from="1674921956000" duration="254000" />
+      <workItem from="1674922341364" duration="2541000" />
     </task>
     <task id="LOCAL-00001" summary="files xml">
       <created>1674850016969</created>
@@ -57,7 +82,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674850016969</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="files xml">
+      <created>1674850286767</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1674850286767</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

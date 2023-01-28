@@ -2,7 +2,7 @@ import random
 import vlc
 import time
 
-from server.receiveImages import FilmScene
+from server.mainServer import FilmScene
 
 scenes = [FilmScene("Seven", 6, "dramatic"), FilmScene("Sixth sense", 144, "dramatic"), FilmScene("Boyz n the hood", 222, "dramatic"),
           FilmScene("Braveheart", 354, "dramatic"), FilmScene("Forrest gump", 564, "dramatic"), FilmScene("Scarface", 694, "dramatic"),

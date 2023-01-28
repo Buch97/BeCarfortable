@@ -79,6 +79,8 @@ if __name__ == '__main__':
     if not isExist:
         os.makedirs("frames")
 
+    # listen(text)
     capture_video()
+
 
 

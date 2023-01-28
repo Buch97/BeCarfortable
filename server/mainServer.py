@@ -6,11 +6,15 @@ import cv2 as cv2
 import numpy as np
 from emonet.evaluation import evaluate
 from server.emotionDetector import classifyDeepFace
+from server.socketServer import receiveExcludedEmotion
 from test import load_emonet
 
 session = ftplib.FTP('192.168.1.59', 'pucci', 'pi')
 filezilla_folder = '../resources/frames/'
 net = load_emonet()
+emotion_count = 0
+
+excluded_emotion = receiveExcludedEmotion()
 
 while True:
     # wait frame from raspberry
@@ -36,6 +40,7 @@ while True:
     emonet_result = evaluate(net, image)
     deepface_result = classifyDeepFace(image)
 
+    # send label if exclude_emotion
     cv2.imwrite("../resources/output/" + str(frame), image)
 
     # if pop operation not enough
@@ -46,4 +51,3 @@ while True:
         break
 
 session.quit()
-
