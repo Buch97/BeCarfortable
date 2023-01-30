@@ -12,7 +12,7 @@ filezilla_folder = '../resources/frames/'
 
 
 class FileHandler(FileSystemEventHandler):
-    def __int__(self, classifier):
+    def __init__(self, classifier):
         if classifier == 'emonet':
             self.net = load_emonet()
         else:
