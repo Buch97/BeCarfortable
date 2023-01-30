@@ -4,13 +4,21 @@ import torchvision.transforms as transforms
 from PIL import Image
 from cv2 import cv2
 
+emotions = {0: "Neutral",
+            1: "Happy",
+            2: "Sad",
+            3: "Surprise",
+            4: "Fear",
+            5: "Disgust",
+            6: "Anger",
+            7: "Contempt"}
+
 
 def evaluate(net, image):
     # for file in os.listdir('facial_expressions'):
     # print(file)
-    img = cv2.imread(image, cv2.IMREAD_COLOR)
-    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-    img = cv2.resize(img, (256, 256))
+    # img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    img = cv2.resize(image, (256, 256))
     img = Image.fromarray(img)
     fun = transforms.ToTensor()
     img = fun(img)
@@ -20,10 +28,9 @@ def evaluate(net, image):
     with torch.no_grad():
         out = net(image)
 
-    print(out['expression'])
     emotion = torch.softmax(out['expression'][0], dim=0)
     index = emotion.argmax(dim=0).item()
-    print("EXPRESSION: " + str(index))
+    # print("EXPRESSION: " + str(index))
 
     # expr = out['expression']
     # val = out['valence']
@@ -36,4 +43,4 @@ def evaluate(net, image):
     # print("-------------------------------------------------")
 
     # expression_pred = np.concatenate([expr, expression_pred])
-    return str(index)
+    return emotions.get(index)

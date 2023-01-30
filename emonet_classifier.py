@@ -44,14 +44,9 @@ def capture_video():
 def load_emonet():
     torch.backends.cudnn.benchmark = True
 
-    # Parse arguments
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--nclasses', type=int, default=8, choices=[5, 8],
-                    help='Number of emotional classes to test the model on. Please use 5 or 8.')
-    args = parser.parse_args()
 
     # Parameters of the experiments
-    n_expression = args.nclasses
+    n_expression = 8
     batch_size = 1
     n_workers = 1
     device = 'cpu'

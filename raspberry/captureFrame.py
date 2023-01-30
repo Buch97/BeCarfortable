@@ -2,8 +2,8 @@ import ftplib
 import os
 import time
 import cv2 as cv2
-import picamera
-from picamera.array import PiRGBArray
+# import picamera
+# from picamera.array import PiRGBArray
 
 from socketRaspberry import sendExcludedEmotion
 
@@ -61,28 +61,7 @@ def face_detection(img):
         return face
 
 
-if __name__ == '__main__':
 
-    emotion_list = ['sad', 'angry', 'disgust', 'happy', 'fear', 'surprise']
-    while True:
-        print("Welcome to the demo of the project of Industrial Application.\nType the emotion that you don't want to "
-              "feel ", end='')
-        print(emotion_list, end=':\n')
-
-        text = input()
-        if text not in emotion_list:
-            print("Emotion not supported.")
-        else:
-            break
-
-    sendExcludedEmotion(text)
-
-    print("Starting the video...")
-    isExist = os.path.exists("frames")
-    if not isExist:
-        os.makedirs("frames")
-
-    capture_video()
 
 
 

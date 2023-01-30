@@ -21,6 +21,7 @@ def sendExcludedEmotion(excluded_emotion):
 
 
 def receiveMessageSkip():
+    global skip
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.bind((ipRaspberry, 8080))
     sock.listen()
@@ -36,4 +37,5 @@ def receiveMessageSkip():
         else:
             print("SERVER: Message received: " + skip + ".")
             conn.send(encodedMessage)
+            skip = True
             # submitVideo()
