@@ -1,43 +1,55 @@
-import ftplib
-import io
-import os
 import time
 
 import cv2 as cv2
-import numpy as np
-from PIL import Image
+from watchdog.observers import Observer
+from watchdog.events import FileSystemEventHandler
 
 from emonet.evaluation import evaluate
-from server.emotionDetector import classifyDeepFace
-from server.socketServer import receiveExcludedEmotion
 from emonet_classifier import load_emonet
+from server.emotionDetector import classifyDeepFace
+
+filezilla_folder = '../resources/frames/'
 
 
-def receiveFrame():
+class FileHandler(FileSystemEventHandler):
+    def __int__(self, classifier):
+        if classifier == 'emonet':
+            self.net = load_emonet()
+        else:
+            self.net = None
+
+    def on_created(self, event):
+        print('New frame %s has arrived! Start processing...' % event.src_path)
+        image_path = event.src_path
+        image = cv2.imread(image_path, cv2.IMREAD_COLOR)
+
+        if self.net is not None:
+            emonet_result = evaluate(self.net, image)
+            print("Emonet detect --> " + emonet_result)
+        else:
+            deepface_result = classifyDeepFace(image_path)
+            print("DeepFace detect --> " + str(deepface_result))
+
+
+def receiveFrame(classifier):
     while True:
+
         # wait frame from raspberry
         print('Waiting new frame to process...')
         # time.sleep(10)
 
-        # while len(os.listdir(filezilla_folder)) == 0:
-        #  pass
+        observer = Observer()
+        event_handler = FileHandler(classifier)
+        observer.schedule(event_handler, path='/folder/to/watch')
+        observer.start()
 
-        print('New frame arrived! Start processing...')
-        # frame = os.listdir(filezilla_folder).pop()
-        file = str(filezilla_folder) + 'frame0.jpg'
-
-        image_path = '../resources/frames/frame0.jpg'
-
-        image = cv2.imread(image_path, cv2.IMREAD_COLOR)
-
-        emonet_result = evaluate(net, image)
-        deepface_result = classifyDeepFace(image_path)
-        print("Emonet detect --> " + emonet_result)
-        print("DeepFace detect --> " + str(deepface_result))
+        try:
+            while True:
+                time.sleep(1)
+        except KeyboardInterrupt:
+            observer.stop()
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
-    session.quit()
-
-receiveFrame()
+        # receiveFrame()
