@@ -2,6 +2,9 @@ import argparse
 import ftplib
 import threading
 
+import cv2
+from PIL import Image
+
 from server.analyzeFrame import receiveFrame
 from server.socketServer import receiveExcludedEmotion
 
@@ -15,10 +18,6 @@ if __name__ == '__main__':
     session.encoding = 'utf-8'
     excluded_emotion = receiveExcludedEmotion()
 
-    emotion_count = 0
-    t1 = threading.Thread(target=receiveExcludedEmotion)
-    t2 = threading.Thread(target=receiveFrame, args=classifier)
+    t1 = threading.Thread(target=receiveFrame, args=(classifier,excluded_emotion,))
 
     t1.start()
-    t1.join()
-    t2.start()

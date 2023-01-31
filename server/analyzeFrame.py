@@ -1,18 +1,21 @@
 import time
 
 import cv2 as cv2
+from PIL import Image
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 
 from emonet.evaluation import evaluate
 from emonet_classifier import load_emonet
 from server.emotionDetector import classifyDeepFace
+from server.socketServer import send_skip
 
 filezilla_folder = '../resources/frames/'
 
-
 class FileHandler(FileSystemEventHandler):
-    def __init__(self, classifier):
+    def __init__(self, classifier, emotion):
+        self.emotion = emotion
+        self.emotion_count = 0
         if classifier == 'emonet':
             self.net = load_emonet()
         else:
@@ -21,17 +24,29 @@ class FileHandler(FileSystemEventHandler):
     def on_created(self, event):
         print('New frame %s has arrived! Start processing...' % event.src_path)
         image_path = event.src_path
-        image = cv2.imread(image_path, cv2.IMREAD_COLOR)
+        time.sleep(0.2)
+
+        image = cv2.imread(image_path)
 
         if self.net is not None:
-            emonet_result = evaluate(self.net, image)
-            print("Emonet detect --> " + emonet_result)
+            result = evaluate(self.net, image)
+            print("Emonet detect --> " + result)
         else:
-            deepface_result = classifyDeepFace(image_path)
-            print("DeepFace detect --> " + str(deepface_result))
+            result = classifyDeepFace(image)
+            print("DeepFace detect --> " + str(result))
+
+        if result == self.emotion:
+            self.emotion_count += 1
+        else:
+            self.emotion_count = 0
+
+        if self.emotion_count == 3:
+            self.emotion_count = 0
+            print("Need to skip the scene")
+            send_skip()
 
 
-def receiveFrame(classifier):
+def receiveFrame(classifier, emotion):
     while True:
 
         # wait frame from raspberry
@@ -39,8 +54,8 @@ def receiveFrame(classifier):
         # time.sleep(10)
 
         observer = Observer()
-        event_handler = FileHandler(classifier)
-        observer.schedule(event_handler, path='/folder/to/watch')
+        event_handler = FileHandler(classifier, emotion)
+        observer.schedule(event_handler, path='../frames')
         observer.start()
 
         try:

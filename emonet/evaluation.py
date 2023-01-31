@@ -4,14 +4,14 @@ import torchvision.transforms as transforms
 from PIL import Image
 from cv2 import cv2
 
-emotions = {0: "Neutral",
-            1: "Happy",
-            2: "Sad",
-            3: "Surprise",
-            4: "Fear",
-            5: "Disgust",
-            6: "Anger",
-            7: "Contempt"}
+emotions = {0: "neutral",
+            1: "happy",
+            2: "sad",
+            3: "surprise",
+            4: "fear",
+            5: "disgust",
+            6: "angry",
+            7: "contempt"}
 
 
 def evaluate(net, image):

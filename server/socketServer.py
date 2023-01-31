@@ -33,11 +33,12 @@ def receiveExcludedEmotion():
 
 
 def send_skip():
+
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     client.connect((ipRaspberry, 8080))
 
     encodedMessage = bytes("skip", 'utf-8')
-
+    print("MANDO SKIP")
     client.send(encodedMessage)
 
     encodedAckText = client.recv(1024)
