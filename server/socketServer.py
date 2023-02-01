@@ -8,13 +8,11 @@ emotion_list = ['sad', 'angry', 'disgust', 'happy', 'fear', 'surprise']
 
 def receiveExcludedEmotion():
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    print('socket instantiated')
 
     sock.bind((ip, 8080))
-    print('socket binded')
 
     sock.listen()
-    print('socket now listening')
+    print('Socket now listening. Waiting for excluded emotion...')
 
     conn, addr = sock.accept()
     print('socket accepted, got connection object')
@@ -38,13 +36,12 @@ def send_skip():
     client.connect((ipRaspberry, 8080))
 
     encodedMessage = bytes("skip", 'utf-8')
-    print("MANDO SKIP")
     client.send(encodedMessage)
 
     encodedAckText = client.recv(1024)
     ackText = encodedAckText.decode('utf-8')
 
     if ackText == "OK":
-        print('server acknowledged reception of text')
+        print('Raspberry acknowledged reception of text')
     else:
-        print('error: server has sent back ' + ackText)
+        print('Error: Raspberry has sent back ' + ackText)

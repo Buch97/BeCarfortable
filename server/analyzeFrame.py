@@ -42,7 +42,7 @@ class FileHandler(FileSystemEventHandler):
 
         if self.emotion_count == 3:
             self.emotion_count = 0
-            print("Need to skip the scene")
+            print("Sending skip message to Raspberry")
             send_skip()
 
 

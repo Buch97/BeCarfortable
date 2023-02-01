@@ -4,16 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="222fa669-b2c6-49d7-9879-f49ce66f5eba" name="Changes" comment="aggiunta evaluation deepface e emonet su receiveimages">
-      <change beforePath="$PROJECT_DIR$/.idea/BeCarfortable.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/BeCarfortable.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="222fa669-b2c6-49d7-9879-f49ce66f5eba" name="Changes" comment="fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom_dataset.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/emonet/evaluation.py" beforeDir="false" afterPath="$PROJECT_DIR$/emonet/evaluation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/emonet_classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/emonet_classifier.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/analyzeFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/analyzeFrame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/emotionDetector.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/emotionDetector.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/socketServer.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/socketServer.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -88,7 +81,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/server/main.py" />
-      <option name="PARAMETERS" value="--classifier emonet" />
+      <option name="PARAMETERS" value="--classifier deepface" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -123,7 +116,9 @@
       <workItem from="1675088208685" duration="8632000" />
       <workItem from="1675158253946" duration="3137000" />
       <workItem from="1675161693059" duration="4957000" />
-      <workItem from="1675180169309" duration="10631000" />
+      <workItem from="1675180169309" duration="10959000" />
+      <workItem from="1675249372622" duration="3405000" />
+      <workItem from="1675274504798" duration="2077000" />
     </task>
     <task id="LOCAL-00001" summary="files xml">
       <created>1674850016969</created>
@@ -146,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674925785514</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fix">
+      <created>1675191300777</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1675191300777</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,12 +168,13 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="files xml" />
     <MESSAGE value="message via socket" />
-    <option name="LAST_COMMIT_MESSAGE" value="message via socket" />
+    <MESSAGE value="fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/BeCarfortable$mainServer.coverage" NAME="mainServer Coverage Results" MODIFIED="1675008363786" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/server" />
     <SUITE FILE_PATH="coverage/BeCarfortable$analyzeFrame.coverage" NAME="analyzeFrame Coverage Results" MODIFIED="1675094591694" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/server" />
-    <SUITE FILE_PATH="coverage/BeCarfortable$main.coverage" NAME="main Coverage Results" MODIFIED="1675190740301" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/server" />
+    <SUITE FILE_PATH="coverage/BeCarfortable$main.coverage" NAME="main Coverage Results" MODIFIED="1675276491263" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/server" />
     <SUITE FILE_PATH="coverage/BeCarfortable$evaluation.coverage" NAME="evaluation Coverage Results" MODIFIED="1675000764844" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/emonet" />
     <SUITE FILE_PATH="coverage/BeCarfortable$emotionDetector.coverage" NAME="emotionDetector Coverage Results" MODIFIED="1675008039048" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/server" />
   </component>
